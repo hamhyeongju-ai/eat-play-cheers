@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eat,Play,Cheers 여행 회비 관리</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block"><div class="brand-mark">₩</div><div><h1>여행 회비</h1><p>이번 여행 회비, 지출, 정산을 한 번에</p></div></div>
+      <section class="meeting-card fixed-trip">
+        <div class="fixed-row"><span>여행 이름</span><strong id="meetingNameDisplay">Eat,Play,Cheers</strong></div>
+        <div class="fixed-row"><span>여행일자</span><strong id="tripDateDisplay">7/25 ~ 26</strong></div>
+        <div class="fixed-row"><span>첫 회비</span><strong id="defaultDueDisplay">150,000원</strong></div>
+      </section>
+      <section class="summary-stack">
+        <div class="metric"><span>현재 잔액</span><strong id="balanceMetric">0원</strong></div>
+        <div class="metric"><span>여행 회비 수입</span><strong id="incomeMetric">0원</strong></div>
+        <div class="metric"><span>여행 지출</span><strong id="expenseMetric">0원</strong></div>
+        <div class="metric"><span>미납 회비</span><strong id="unpaidMetric">0원</strong></div>
+        <div class="metric accent"><span>정산 제안</span><strong id="adjustMetric">0원</strong></div>
+      </section>
+      <div class="side-actions"><button id="exportBtn" type="button" title="데이터 내보내기" class="icon-button">↓</button><label class="icon-button file-button" title="데이터 가져오기">↑<input id="importFile" type="file" accept="application/json"></label><button id="resetBtn" type="button" title="전체 초기화" class="icon-button danger">×</button></div>
+    </aside>
+    <main class="main-panel">
+      <header class="topbar"><div><p class="eyebrow">여행 회비 장부</p><h2 id="pageTitle">Eat,Play,Cheers</h2><p id="tripRange" class="subline">2026-07-25 ~ 2026-07-26</p></div><div class="tabbar"><button class="tab is-active" data-tab="payment" type="button">회비</button><button class="tab" data-tab="expense" type="button">지출</button><button class="tab" data-tab="member" type="button">회원</button></div></header>
+      <section class="quick-entry">
+        <form id="paymentForm" class="entry-form" data-panel="payment"><label>회원<select id="paymentMember" required></select></label><label>금액<input id="paymentAmount" type="text" inputmode="numeric" required></label><label>날짜<input id="paymentDate" type="date" required></label><label>메모<input id="paymentMemo" type="text" placeholder="예: 여행 회비"></label><button type="submit" class="primary-btn">납부 기록</button></form>
+        <form id="expenseForm" class="entry-form is-hidden" data-panel="expense"><label>항목<input id="expenseTitle" type="text" placeholder="예: 숙소, 식비, 렌터카" required></label><label>금액<input id="expenseAmount" type="text" inputmode="numeric" required></label><label>날짜<input id="expenseDate" type="date" required></label><label>결제자<select id="expensePayer"></select></label><button type="submit" class="primary-btn">지출 기록</button></form>
+        <form id="memberForm" class="entry-form is-hidden" data-panel="member"><label>이름<input id="memberName" type="text" placeholder="회원 이름" required></label><label>연락처<input id="memberContact" type="text" placeholder="선택 입력"></label><label>참가 회비<input id="memberDue" type="text" inputmode="numeric" placeholder="기본값 사용"></label><label>상태<select id="memberStatus"><option value="active">참가</option><option value="paused">불참</option></select></label><button type="submit" class="primary-btn">회원 추가</button></form>
+      </section>
+      <section class="dashboard-grid">
+        <div class="panel ledger-panel"><div class="panel-header"><h3>거래 내역</h3><div class="filters"><input id="searchInput" type="search" placeholder="검색"><select id="typeFilter"><option value="all">전체</option><option value="payment">회비</option><option value="expense">지출</option></select></div></div><div id="ledgerList" class="ledger-list"></div></div>
+        <div class="panel members-panel"><div class="panel-header"><h3>참가자별 현황</h3><button id="markMonthPaid" type="button" class="text-btn">전체 참가자 납부 처리</button></div><div id="memberList" class="member-list"></div></div>
+        <div class="panel settlement-panel"><div class="panel-header"><h3>정산 메모</h3><button id="copySummary" type="button" class="text-btn">복사</button></div><textarea id="settlementText" readonly></textarea></div>
+      </section>
+    </main>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
