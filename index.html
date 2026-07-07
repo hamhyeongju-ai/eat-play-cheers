@@ -40,7 +40,7 @@
         <button id="exportPaymentImage" type="button" class="wide-btn">납부현황 이미지</button>
         <button id="exportSummaryImage" type="button" class="wide-btn">회비현황 이미지</button>
       </div>
-      <div class="side-actions"><button id="exportBtn" type="button" title="데이터 내보내기" class="icon-button">↓</button><label class="icon-button file-button" title="데이터 가져오기">↑<input id="importFile" type="file" accept="application/json"></label><button id="resetBtn" type="button" title="전체 초기화" class="icon-button danger">×</button></div>
+      <div class="side-actions admin-tools"><label class="icon-button file-button" title="데이터 가져오기">↑<input id="importFile" type="file" accept="application/json"></label><button id="resetBtn" type="button" title="전체 초기화" class="icon-button danger">×</button></div>
     </aside>
     <main class="main-panel">
       <header class="topbar"><div><p class="eyebrow">여행 회비 장부</p><h2 id="pageTitle">Eat,Play,Cheers</h2><p id="tripRange" class="subline">2026-07-25 ~ 2026-07-26</p></div><div class="tabbar"><button class="tab is-active" data-tab="payment" type="button">회비</button><button class="tab" data-tab="expense" type="button">지출</button><button class="tab" data-tab="member" type="button">회원</button></div></header>
@@ -52,7 +52,7 @@
       <section class="dashboard-grid">
         <div class="panel ledger-panel"><div class="panel-header"><h3>거래 내역</h3><div class="filters"><input id="searchInput" type="search" placeholder="검색"><select id="typeFilter"><option value="all">전체</option><option value="payment">회비</option><option value="expense">지출</option></select></div></div><div id="ledgerList" class="ledger-list"></div></div>
         <div class="panel members-panel"><div class="panel-header"><h3>회원별 현황</h3><button id="markMonthPaid" type="button" class="text-btn">전체 참가자 납부 처리</button></div><div id="memberList" class="member-list"></div></div>
-        <div class="panel settlement-panel"><div class="panel-header"><h3>정산 메모</h3><button id="copySummary" type="button" class="text-btn">복사</button></div><textarea id="settlementText" readonly></textarea></div>
+        <div class="panel settlement-panel"><div class="panel-header"><h3>정산 메모</h3><button id="copySummary" type="button" class="text-btn copy-btn">복사</button></div><textarea id="settlementText" readonly></textarea></div>
       </section>
     </main>
   </div>
