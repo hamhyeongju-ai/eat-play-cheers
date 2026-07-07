@@ -27,6 +27,7 @@
         <div class="fixed-row"><span>여행 이름</span><strong id="meetingNameDisplay">Eat,Play,Cheers</strong></div>
         <div class="fixed-row"><span>여행일자</span><strong id="tripDateDisplay">7/25 ~ 26</strong></div>
         <div class="fixed-row"><span>첫 회비</span><strong id="defaultDueDisplay">150,000원</strong></div>
+        <div class="admin-panel"><span id="syncStatus">연결 준비 중</span><button id="adminLogin" type="button">관리자 로그인</button><button id="adminLogout" type="button" class="is-hidden">로그아웃</button></div>
       </section>
       <section class="summary-stack">
         <div class="metric"><span>현재 잔액</span><strong id="balanceMetric">0원</strong></div>
@@ -55,6 +56,6 @@
       </section>
     </main>
   </div>
-  <script src="./app.js"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 </html>
